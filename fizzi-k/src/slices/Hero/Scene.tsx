@@ -1,10 +1,12 @@
 import { FloatingCan } from "@/components/FloatingCan"
 import { useGSAP } from "@gsap/react"
 import { Environment } from "@react-three/drei"
-import { group } from "console"
 import gsap from "gsap"
 import { useRef } from "react"
 import { Group } from "three"
+
+import { useStore } from "@/hooks/useStore";
+import { useMediaQuery } from "@/hooks/useMediaQuery"
 
 export const Scene = () => {
 
@@ -19,8 +21,13 @@ export const Scene = () => {
 
     const groupRef = useRef<Group>(null)
 
+    const isReady = useStore((state) => state.isReady)
+    const isDesktop = useMediaQuery("(min-width: 768px)", true);
+
     useGSAP(() => {
-        if (!can1Ref.current || !can2Ref.current || !can3Ref.current || !can4Ref.current || !can5Ref.current || !can1GroupRef.current || !can2GroupRef.current) return;
+        if (!can1Ref.current || !can2Ref.current || !can3Ref.current || !can4Ref.current || !can5Ref.current || !can1GroupRef.current || !can2GroupRef.current || !isDesktop) return;
+
+        isReady();
 
         gsap.set(can1Ref.current.position, { x: -1.8 })
         gsap.set(can1Ref.current.rotation, { z: -0.5 })
@@ -88,11 +95,11 @@ export const Scene = () => {
                 <FloatingCan flavor="blackCherry" floatSpeed={FLOAT_SPEED} ref={can1Ref}/>
             </group>
             <group ref={can2GroupRef}>
-                <FloatingCan flavor="grape" floatSpeed={FLOAT_SPEED} ref={can2Ref} />
+                <FloatingCan flavor="lemonLime" floatSpeed={FLOAT_SPEED} ref={can2Ref} />
             </group>
-            <FloatingCan flavor="lemonLime" floatSpeed={FLOAT_SPEED} ref={can3Ref} />
-            <FloatingCan flavor="strawberryLemonade" floatSpeed={FLOAT_SPEED} ref={can4Ref} />
-            <FloatingCan flavor="watermelon" floatSpeed={FLOAT_SPEED} ref={can5Ref} />
+            <FloatingCan flavor="strawberryLemonade" floatSpeed={FLOAT_SPEED} ref={can3Ref} />
+            <FloatingCan flavor="watermelon" floatSpeed={FLOAT_SPEED} ref={can4Ref} />
+            <FloatingCan flavor="grape" floatSpeed={FLOAT_SPEED} ref={can5Ref} />
             <Environment files={'/hdrs/lobby.hdr'}/>
         </group>
     )
