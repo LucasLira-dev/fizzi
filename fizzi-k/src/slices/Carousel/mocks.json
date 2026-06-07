@@ -1,0 +1,31 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Medicine"
+						}
+					}
+				]
+			},
+			"price_copy": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Incididunt irure id et et reprehenderit anim quis ex aliquip laboris quis proident culpa eiusmod. Do eu fugiat nostrud magna excepteur non dolore veniam duis sunt."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

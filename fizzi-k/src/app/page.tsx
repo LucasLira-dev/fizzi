@@ -6,12 +6,17 @@ import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 
+const SLICE_ORDER = ["hero", "sky_dive", "carousel"];
+
 export default async function Home() {
   const client = createClient();
   const home = await client.getByUID("page", "home");
 
-  // <SliceZone> renders the page's slices.
-  return <SliceZone slices={home.data.slices} components={components} />;
+  const slices = [...home.data.slices].sort(
+    (a, b) => SLICE_ORDER.indexOf(a.slice_type) - SLICE_ORDER.indexOf(b.slice_type),
+  );
+
+  return <SliceZone slices={slices} components={components} />;
 }
 
 export async function generateMetadata(): Promise<Metadata> {

@@ -4,11 +4,9 @@ import { FloatingCan } from "@/components/FloatingCan";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useGSAP } from "@gsap/react";
 import { Content } from "@prismicio/client";
-import { Cloud, Clouds, Environment, OrbitControls } from "@react-three/drei";
+import { Cloud, Clouds, Environment } from "@react-three/drei";
 import { Text } from "@react-three/drei";
 import gsap from "gsap";
-import { ScrollToPlugin } from "gsap/src/all";
-import { truncate } from "node:fs";
 
 import { useRef } from "react";
 import * as Three from "three";

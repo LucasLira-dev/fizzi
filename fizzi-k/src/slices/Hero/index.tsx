@@ -38,9 +38,10 @@ const Hero: FC<HeroProps> = ({ slice }) => {
 
     const introTl = gsap.timeline();
 
+    gsap.set(".hero", { opacity: 1 });
+
     if (window.scrollY < 20) {
-        introTl.set(".hero", { opacity: 1 })
-        .from(".hero-header-word", {
+        introTl.from(".hero-header-word", {
           scale: 3,
           opacity: 0,
           ease: "power4.out",
