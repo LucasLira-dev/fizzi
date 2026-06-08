@@ -98,7 +98,7 @@ const Carousel: FC<CarouselProps> = ({ slice }) => {
 
       <div className="grid w-full grid-cols-[auto_auto_auto] place-items-center">
         <ArrowButton direction="left" onClick={() => handleFlavorChange(currentIndex - 1)} label="Previous flavor" />
-        <View className="aspect-square h-[70vmin] w-[70vmin] min-h-40">
+        <View className="aspect-square h-[70vmin] w-[70vmin] min-h-40 touch-pan-y">
           <Center position={[0,0,1.5]}>
             <FloatingCan 
             ref={canRef}

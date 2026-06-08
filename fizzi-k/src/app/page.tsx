@@ -6,7 +6,7 @@ import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 
-const SLICE_ORDER = ["hero", "sky_dive", "carousel"];
+const SLICE_ORDER = ["hero", "sky_dive", "carousel", "alternating_text"];
 
 export default async function Home() {
   const client = createClient();

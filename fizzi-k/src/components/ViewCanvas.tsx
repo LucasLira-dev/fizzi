@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 
 const Loader = dynamic(() => import("@react-three/drei").then((mod) => mod.Loader), { ssr: false })
 
-export const ViewCanvas = () => {
+export const ViewCanvas = ({ eventSource }: { eventSource?: React.RefObject<HTMLElement | null> }) => {
     return (
         <>
             <Canvas 
@@ -16,7 +16,7 @@ export const ViewCanvas = () => {
             style={{ position: "fixed", top: 0, left: "50%", transform: "translateX(-50%)", zIndex: 30, pointerEvents: "none" }}
             dpr={[1, 1.5]} 
             gl={{ antialias: true }}
-
+            eventSource={eventSource as React.RefObject<HTMLElement>}
             >   
                 <Suspense fallback={null}>
                     <View.Port />
