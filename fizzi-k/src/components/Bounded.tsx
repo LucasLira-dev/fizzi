@@ -1,10 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+
 import clsx from "clsx";
+import { type ComponentPropsWithoutRef, type ReactNode } from "react";
 
 type BoundedProps = {
-  as?: React.ElementType;
+  as?: React.ElementType<ComponentPropsWithoutRef<"section">>;
   className?: string;
-  children: React.ReactNode;
-};
+  children?: ReactNode;
+} & Record<string, any>;
 
 export const Bounded = ({
   as: Comp = "section",
@@ -21,5 +25,5 @@ export const Bounded = ({
         {children}
       </div>
     </Comp>
-  )
+  );
 };
